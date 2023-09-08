@@ -1,21 +1,34 @@
 package main;
 
+import java.util.Scanner;
+
 public class Principal {
 
 	public static void main(String[] args) {
-		try {
-			int array[] = new int[3];
-			array[0] = 10 / 2;
-			System.out.println(array[0]);
-		} catch (ArithmeticException e) {
-			System.out.println("ArithmeticException => " + e.getMessage());
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("ArrayIndexOutOfBoundsException => " + e.getMessage());
-		} catch (Exception e) {
-			System.out.println("Exception => " + e.getMessage());
-		} finally {
-			System.out.println("Fim");
-		}
+		Scanner teclado = new Scanner(System.in);
+		int opcao;
+		
+		do {
+			System.out.println("Digite o número 1 ou 2:");
+			System.out.println();
+			try {
+				opcao = teclado.nextInt();
+				switch(opcao) {
+					case 1:
+						System.out.println("Você digitou a opção " + opcao);
+						break;
+					case 2:
+						System.out.println("Você digitou a opção " + opcao);
+						break;
+					default:
+						throw new Exception("Erro");
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				System.out.println("-----------------");
+			}
+		} while (true);
 	}
 
 }
